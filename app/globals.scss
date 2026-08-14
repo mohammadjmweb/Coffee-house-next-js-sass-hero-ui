@@ -1,0 +1,547 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+// ======================================================
+// VARIABLES
+// ======================================================
+
+$primary: #c68b59;
+$primary-dark: #9f6840;
+
+$coffee-dark: #2b1a12;
+$coffee-darker: #1b100b;
+$coffee-light: #f8f3ee;
+
+$text-dark: #2b211d;
+$text-light: #ffffff;
+$text-muted: #766b65;
+
+$border-color: #e8ded6;
+
+$container-width: 1200px;
+
+$transition: all 0.3s ease;
+
+
+// ======================================================
+// LIGHT THEME
+// ======================================================
+
+:root {
+  // ------------------------------------------
+  // Main
+  // ------------------------------------------
+
+  --coffee-bg: #f8f3ee;
+  --coffee-surface: #ffffff;
+  --coffee-surface-soft: #faf7f3;
+
+  --coffee-text: #2b1a12;
+  --coffee-text-soft: #554943;
+  --coffee-muted: #766b65;
+
+  --coffee-border: #e8ded6;
+
+  --coffee-card: #ffffff;
+  --coffee-image-bg: #f7f1eb;
+
+  --coffee-section: #f3ebe4;
+
+  --coffee-navbar: #ffffff;
+
+  --coffee-footer: #2b1a12;
+
+  --coffee-shadow: rgba(52, 35, 25, 0.08);
+
+  --coffee-input-bg: #ffffff;
+  --coffee-input-text: #2b1a12;
+
+  --coffee-hover: #f6e9dc;
+
+
+  // ------------------------------------------
+  // Navbar
+  // ------------------------------------------
+
+  --navbar-bg: #ffffff;
+  --navbar-text: #2b1a12;
+  --navbar-border: #e8ded6;
+  --navbar-icon: #2b1a12;
+
+  --menu-button-bg: #ffffff;
+  --menu-button-hover: #f6e9dc;
+
+  --navbar-shadow:
+    0 10px 30px rgba(52, 35, 25, 0.08);
+
+  --heading-color: #2b1a12;
+
+  --primary: #c68b59;
+}
+
+
+// ======================================================
+// DARK THEME
+// ======================================================
+
+.dark {
+  // ------------------------------------------
+  // Main
+  // ------------------------------------------
+
+  --coffee-bg: #17100c;
+  --coffee-surface: #211610;
+  --coffee-surface-soft: #1c130e;
+
+  --coffee-text: #f7eee7;
+  --coffee-text-soft: #dfcec1;
+  --coffee-muted: #b9a79b;
+
+  --coffee-border: #3d2b21;
+
+  --coffee-card: #241812;
+  --coffee-image-bg: #2a1c15;
+
+  --coffee-section: #1d130e;
+
+  --coffee-navbar: #1b120d;
+
+  --coffee-footer: #100a07;
+
+  --coffee-shadow: rgba(0, 0, 0, 0.35);
+
+  --coffee-input-bg: #211610;
+  --coffee-input-text: #f7eee7;
+
+  --coffee-hover: #332218;
+
+
+  // ------------------------------------------
+  // Navbar
+  // ------------------------------------------
+
+  --navbar-bg: #1b120d;
+  --navbar-text: #f7eee7;
+  --navbar-border: #3d2b21;
+  --navbar-icon: #f7eee7;
+
+  --menu-button-bg: #211610;
+  --menu-button-hover: #332218;
+
+  --navbar-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35);
+
+  --heading-color: #f7eee7;
+
+  --primary: #c68b59;
+}
+
+
+// ======================================================
+// RESET
+// ======================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+// ======================================================
+// HTML
+// ======================================================
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+// ======================================================
+// BODY
+// ======================================================
+
+body {
+  min-height: 100vh;
+
+  background-color: var(--coffee-bg);
+  color: var(--coffee-text);
+
+  font-family: "Inter", sans-serif;
+
+  line-height: 1.6;
+
+  -webkit-font-smoothing: antialiased;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+// ======================================================
+// ROOT
+// ======================================================
+
+#__next {
+  min-height: 100vh;
+}
+
+
+// ======================================================
+// IMAGES
+// ======================================================
+
+img {
+  max-width: 100%;
+  height: auto;
+
+  display: block;
+}
+
+
+// ======================================================
+// LINKS
+// ======================================================
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+
+  transition: $transition;
+}
+
+
+// ======================================================
+// BUTTONS
+// ======================================================
+
+button {
+  font-family: inherit;
+}
+
+
+// ======================================================
+// INPUTS
+// ======================================================
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+
+// ======================================================
+// LISTS
+// ======================================================
+
+ul,
+ol {
+  list-style: none;
+}
+
+
+// ======================================================
+// SELECTION
+// ======================================================
+
+::selection {
+  background-color: $primary;
+  color: $text-light;
+}
+
+
+// ======================================================
+// SCROLLBAR
+// ======================================================
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--coffee-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary;
+
+  border-radius: 10px;
+
+  &:hover {
+    background: $primary-dark;
+  }
+}
+
+
+// ======================================================
+// GLOBAL CONTAINER
+// ======================================================
+
+.container {
+  width: min(100% - 40px, $container-width);
+
+  margin-inline: auto;
+}
+
+
+// ======================================================
+// SECTION
+// ======================================================
+
+section {
+  width: 100%;
+}
+
+
+// ======================================================
+// SECTION HEADING
+// ======================================================
+
+.section-heading {
+  max-width: 700px;
+
+  margin: 0 auto 60px;
+
+  text-align: center;
+
+  span {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: $primary;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+  }
+
+  h2 {
+    margin-bottom: 15px;
+
+    color: var(--coffee-text);
+
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    strong {
+      color: $primary;
+    }
+  }
+
+  p {
+    color: var(--coffee-muted);
+
+    font-size: 16px;
+
+    line-height: 1.8;
+  }
+}
+
+
+// ======================================================
+// PAGE HEADER
+// ======================================================
+
+.page-header {
+  min-height: 400px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 80px 20px;
+
+  background:
+    linear-gradient(
+      rgba(43, 26, 18, 0.85),
+      rgba(43, 26, 18, 0.85)
+    ),
+    url("/images/coffee-shop.jpg")
+      center / cover no-repeat;
+
+  color: $text-light;
+
+  text-align: center;
+
+  span {
+    display: block;
+
+    margin-bottom: 15px;
+
+    color: $primary;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+  }
+
+  h1 {
+    font-size: clamp(40px, 7vw, 70px);
+
+    line-height: 1.1;
+
+    strong {
+      color: $primary;
+    }
+  }
+
+  p {
+    max-width: 650px;
+
+    margin: 25px auto 0;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    font-size: 17px;
+  }
+}
+
+
+// ======================================================
+// THEME TOGGLE
+// ======================================================
+
+.themeToggle {
+  width: 42px;
+  height: 42px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  background: var(--coffee-surface);
+
+  color: var(--coffee-text);
+
+  border: 1px solid var(--coffee-border);
+
+  border-radius: 50%;
+
+  font-size: 18px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+
+  &:hover {
+    background: $primary;
+
+    color: #ffffff;
+
+    border-color: $primary;
+
+    transform: rotate(12deg) scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+
+// ======================================================
+// MOBILE CONTROLS
+// ======================================================
+
+.mobileControls {
+  display: none;
+}
+
+
+// ======================================================
+// THEME TRANSITION
+// فقط عناصر اصلی
+// ======================================================
+
+html,
+body,
+button,
+input,
+textarea,
+select,
+header,
+footer {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+// ======================================================
+// RESPONSIVE
+// ======================================================
+
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 30px, $container-width);
+  }
+
+  .section-heading {
+    margin-bottom: 40px;
+  }
+
+  .page-header {
+    min-height: 320px;
+
+    padding: 60px 20px;
+  }
+
+  .mobileControls {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-left: auto;
+  }
+}
+
+
+// ======================================================
+// SMALL MOBILE
+// ======================================================
+
+@media (max-width: 480px) {
+  .container {
+    width: min(100% - 24px, $container-width);
+  }
+
+  .section-heading {
+    h2 {
+      font-size: 30px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .themeToggle {
+    width: 40px;
+    height: 40px;
+
+    font-size: 17px;
+  }
+}
