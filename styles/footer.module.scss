@@ -1,0 +1,442 @@
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+  background: var(--footer-bg);
+
+  color: var(--footer-text);
+
+  padding: 80px 0 25px;
+
+  border-top: 1px solid var(--footer-border);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+  width: min(100% - 40px, 1200px);
+
+  margin: 0 auto;
+}
+
+/* =========================================
+   FOOTER GRID
+========================================= */
+
+.footerGrid {
+  display: grid;
+
+  grid-template-columns:
+    1.5fr
+    1fr
+    1.2fr
+    1.3fr;
+
+  gap: 50px;
+}
+
+/* =========================================
+   BRAND
+========================================= */
+
+.brand {
+  max-width: 300px;
+}
+
+.logo {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: var(--footer-heading);
+
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.logo:hover {
+  opacity: 0.85;
+}
+
+.logoIcon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--primary);
+
+  color: #ffffff;
+
+  font-size: 20px;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.logo:hover .logoIcon {
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.logoText {
+  color: var(--footer-heading);
+
+  font-size: 21px;
+  font-weight: 800;
+
+  transition: color 0.3s ease;
+
+  span {
+    color: var(--primary);
+
+    transition: color 0.3s ease;
+  }
+}
+
+.brand > p {
+  margin: 20px 0 25px;
+
+  color: var(--footer-muted);
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  transition: color 0.3s ease;
+}
+
+/* =========================================
+   SOCIALS
+========================================= */
+
+.socials {
+  display: flex;
+
+  gap: 8px;
+
+  a {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--footer-social-bg);
+
+    color: var(--footer-heading);
+
+    font-size: 15px;
+
+    text-decoration: none;
+
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  a:hover {
+    background: var(--primary);
+
+    color: #ffffff;
+
+    transform: translateY(-3px);
+  }
+}
+
+/* =========================================
+   COLUMNS
+========================================= */
+
+.column {
+  h3 {
+    margin: 0 0 22px;
+
+    color: var(--footer-heading);
+
+    font-size: 16px;
+    font-weight: 700;
+
+    transition: color 0.3s ease;
+  }
+
+  ul {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  li,
+  a {
+    color: var(--footer-muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    text-decoration: none;
+
+    transition:
+      color 0.3s ease,
+      padding-left 0.3s ease;
+  }
+
+  li a:hover {
+    padding-left: 5px;
+
+    color: var(--primary);
+  }
+}
+
+/* =========================================
+   OPENING HOURS
+========================================= */
+
+.hours {
+  gap: 15px !important;
+
+  li {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+  }
+
+  span {
+    color: var(--footer-muted);
+
+    font-size: 13px;
+  }
+
+  strong {
+    color: var(--footer-heading);
+
+    font-size: 13px;
+    font-weight: 600;
+  }
+}
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact {
+  gap: 15px !important;
+
+  li {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+  }
+
+  li > span {
+    flex-shrink: 0;
+
+    font-size: 16px;
+  }
+
+  p {
+    margin: 0;
+
+    color: var(--footer-muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+  }
+
+  a {
+    color: var(--footer-muted);
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+}
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.divider {
+  height: 1px;
+
+  margin: 55px 0 25px;
+
+  background: var(--footer-divider);
+
+  transition: background-color 0.3s ease;
+}
+
+/* =========================================
+   FOOTER BOTTOM
+========================================= */
+
+.footerBottom {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  p {
+    margin: 0;
+
+    color: var(--footer-muted);
+
+    font-size: 12px;
+
+    transition: color 0.3s ease;
+  }
+}
+
+/* =========================================
+   BOTTOM LINKS
+========================================= */
+
+.bottomLinks {
+  display: flex;
+
+  gap: 20px;
+
+  a {
+    color: var(--footer-muted);
+
+    font-size: 12px;
+
+    text-decoration: none;
+
+    transition:
+      color 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--primary);
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+  .footerGrid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 40px;
+  }
+
+  .brand {
+    max-width: 100%;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .footer {
+    padding-top: 60px;
+  }
+
+  .container {
+    width: min(100% - 30px, 1200px);
+  }
+
+  .footerGrid {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .bottomLinks {
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 15px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+  .footer {
+    padding-top: 50px;
+  }
+
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  .footerGrid {
+    gap: 30px;
+  }
+
+  .logoText {
+    font-size: 19px;
+  }
+
+  .brand > p {
+    font-size: 13px;
+  }
+
+  .column h3 {
+    font-size: 15px;
+  }
+
+  .column li,
+  .column a {
+    font-size: 13px;
+  }
+
+  .bottomLinks {
+    flex-direction: column;
+
+    gap: 8px;
+  }
+}
