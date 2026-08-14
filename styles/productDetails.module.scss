@@ -1,0 +1,897 @@
+/* =========================================
+   PRODUCT DETAILS PAGE
+========================================= */
+
+.detailsPage {
+  width: 100%;
+  min-height: 100vh;
+
+  background: var(--coffee-bg);
+  color: var(--coffee-text);
+
+  padding-top: 35px;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+  width: min(1100px, calc(100% - 40px));
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   BACK LINK
+========================================= */
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 30px;
+
+  color: var(--coffee-muted);
+
+  font-size: 15px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.backLink:hover {
+  color: var(--primary);
+
+  transform: translateX(-4px);
+}
+
+
+/* =========================================
+   PRODUCT DETAILS
+========================================= */
+
+.productDetails {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(360px, 0.9fr)
+    minmax(0, 1.1fr);
+
+  align-items: center;
+
+  gap: 65px;
+
+  padding: 35px;
+
+  background: var(--coffee-surface);
+
+  border: 1px solid var(--coffee-border);
+
+  border-radius: 28px;
+
+  box-shadow:
+    0 18px 50px var(--coffee-shadow);
+}
+
+
+/* =========================================
+   IMAGE SECTION
+========================================= */
+
+.imageSection {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================
+   IMAGE WRAPPER
+========================================= */
+
+.imageWrapper {
+  position: relative;
+
+  width: 100%;
+  max-width: 380px;
+
+  height: 380px;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: var(--coffee-image-bg);
+
+  border: 1px solid var(--coffee-border);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 12px 30px var(--coffee-shadow);
+}
+
+
+/* =========================================
+   PRODUCT IMAGE
+========================================= */
+
+.productImage {
+  object-fit: contain;
+
+  padding: 25px;
+
+  transition:
+    transform 0.4s ease;
+}
+
+.imageWrapper:hover .productImage {
+  transform: scale(1.04);
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.contentSection {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+
+/* =========================================
+   CATEGORY
+========================================= */
+
+.category {
+  margin-bottom: 16px;
+
+  color: #ffffff !important;
+
+  background: var(--primary) !important;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   PRODUCT TITLE
+========================================= */
+
+.contentSection h1 {
+  margin: 0 0 10px;
+
+  color: var(--coffee-text);
+
+  font-size: clamp(34px, 4vw, 52px);
+
+  font-weight: 800;
+
+  line-height: 1.1;
+
+  letter-spacing: -1px;
+}
+
+
+/* =========================================
+   PRICE
+========================================= */
+
+.price {
+  margin-bottom: 20px;
+
+  color: var(--primary);
+
+  font-size: 27px;
+  font-weight: 800;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.description {
+  max-width: 620px;
+
+  margin: 0;
+
+  color: var(--coffee-text-soft);
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 25px 0;
+
+  background: var(--coffee-border);
+}
+
+
+/* =========================================
+   ABOUT PRODUCT
+========================================= */
+
+.aboutProduct {
+  width: 100%;
+}
+
+.aboutProduct > span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--primary);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.aboutProduct p {
+  max-width: 620px;
+
+  margin: 0;
+
+  color: var(--coffee-muted);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 30px;
+}
+
+
+/* =========================================
+   ORDER BUTTON
+========================================= */
+
+.orderButton {
+  min-width: 135px;
+  height: 48px;
+
+  padding: 0 24px;
+
+  border: none !important;
+
+  border-radius: 12px !important;
+
+  background: var(--primary) !important;
+
+  color: #ffffff !important;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 20px rgba(198, 139, 89, 0.22);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.orderButton:hover {
+  background: var(--primary-dark) !important;
+
+  color: #ffffff !important;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 25px rgba(198, 139, 89, 0.32);
+}
+
+.orderButton:active {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   CONTACT BUTTON
+========================================= */
+
+.contactButton {
+  min-width: 135px;
+  height: 48px;
+
+  padding: 0 24px;
+
+  border: 1.5px solid var(--primary) !important;
+
+  border-radius: 12px !important;
+
+  background: transparent !important;
+
+  color: var(--primary) !important;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.contactButton:hover {
+  background: var(--primary) !important;
+
+  color: #ffffff !important;
+
+  border-color: var(--primary) !important;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 22px rgba(198, 139, 89, 0.22);
+}
+
+.contactButton:active {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   BOTTOM CTA
+========================================= */
+
+.bottomCta {
+  width: 100%;
+
+  margin-top: 80px;
+
+  padding: 85px 20px;
+
+  background:
+    linear-gradient(
+      rgba(43, 26, 18, 0.94),
+      rgba(43, 26, 18, 0.94)
+    );
+
+  color: #ffffff;
+
+  text-align: center;
+}
+
+
+.bottomCtaContent {
+  width: min(700px, 100%);
+
+  margin: 0 auto;
+}
+
+
+.bottomCtaContent > span {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: var(--primary);
+
+  font-size: 13px;
+  font-weight: 800;
+
+  letter-spacing: 3px;
+}
+
+
+.bottomCtaContent h2 {
+  margin: 0 0 15px;
+
+  color: #ffffff;
+
+  font-size: clamp(36px, 6vw, 58px);
+
+  font-weight: 800;
+
+  line-height: 1.1;
+}
+
+
+.bottomCtaContent h2 strong {
+  color: var(--primary);
+}
+
+
+.bottomCtaContent p {
+  max-width: 580px;
+
+  margin: 0 auto 30px;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   EXPLORE MORE DRINKS
+========================================= */
+
+.bottomCtaContent a {
+  display: inline-flex;
+
+  text-decoration: none;
+}
+
+
+.bottomCtaContent a button {
+  min-width: 210px;
+  height: 52px;
+
+  padding: 0 30px;
+
+  border: 1.5px solid var(--primary) !important;
+
+  border-radius: 14px !important;
+
+  background: var(--primary) !important;
+
+  color: #ffffff !important;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  letter-spacing: 0.2px;
+
+  box-shadow:
+    0 8px 20px rgba(198, 139, 89, 0.25);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.bottomCtaContent a button:hover {
+  background: var(--primary-dark) !important;
+
+  border-color: var(--primary-dark) !important;
+
+  color: #ffffff !important;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 13px 28px rgba(198, 139, 89, 0.35);
+}
+
+
+.bottomCtaContent a button:active {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 15px rgba(198, 139, 89, 0.25);
+}
+
+
+/* =========================================
+   NOT FOUND
+========================================= */
+
+.notFound {
+  min-height: calc(100vh - 75px);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 80px 20px;
+
+  background: var(--coffee-bg);
+
+  color: var(--coffee-text);
+
+  text-align: center;
+}
+
+
+.notFoundIcon {
+  width: 80px;
+  height: 80px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 25px;
+
+  border-radius: 50%;
+
+  background: var(--coffee-image-bg);
+
+  font-size: 36px;
+
+  box-shadow:
+    0 10px 30px var(--coffee-shadow);
+}
+
+
+.notFound h1 {
+  margin-bottom: 10px;
+
+  color: var(--coffee-text);
+
+  font-size: 34px;
+  font-weight: 800;
+}
+
+
+.notFound p {
+  margin-bottom: 25px;
+
+  color: var(--coffee-muted);
+
+  font-size: 16px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 950px) {
+  .productDetails {
+    grid-template-columns:
+      minmax(300px, 0.8fr)
+      minmax(0, 1.2fr);
+
+    gap: 40px;
+
+    padding: 28px;
+  }
+
+
+  .imageWrapper {
+    max-width: 330px;
+
+    height: 330px;
+  }
+
+
+  .contentSection h1 {
+    font-size: 40px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .detailsPage {
+    padding-top: 25px;
+  }
+
+
+  .container {
+    width: min(100% - 30px, 600px);
+  }
+
+
+  .backLink {
+    margin-bottom: 20px;
+  }
+
+
+  .productDetails {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    padding: 22px;
+
+    border-radius: 22px;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE IMAGE
+  ----------------------------------------- */
+
+  .imageSection {
+    width: 100%;
+  }
+
+
+  .imageWrapper {
+    width: 100%;
+
+    max-width: 300px;
+
+    height: 280px;
+
+    border-radius: 20px;
+  }
+
+
+  .productImage {
+    padding: 20px;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE CONTENT
+  ----------------------------------------- */
+
+  .contentSection {
+    width: 100%;
+  }
+
+
+  .contentSection h1 {
+    font-size: 34px;
+
+    letter-spacing: -0.5px;
+  }
+
+
+  .price {
+    font-size: 24px;
+
+    margin-bottom: 16px;
+  }
+
+
+  .description,
+  .aboutProduct p {
+    font-size: 15px;
+
+    line-height: 1.75;
+  }
+
+
+  .divider {
+    margin: 22px 0;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE ACTIONS
+  ----------------------------------------- */
+
+  .actions {
+    width: 100%;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 25px;
+  }
+
+
+  .orderButton,
+  .contactButton {
+    width: 100%;
+
+    min-width: 0;
+
+    height: 48px;
+  }
+
+
+  .actions a {
+    width: 100%;
+  }
+
+
+  /* -----------------------------------------
+     CTA
+  ----------------------------------------- */
+
+  .bottomCta {
+    margin-top: 55px;
+
+    padding: 65px 20px;
+  }
+
+
+  .bottomCtaContent h2 {
+    font-size: 40px;
+  }
+
+
+  .bottomCtaContent p {
+    font-size: 15px;
+  }
+
+
+  .bottomCtaContent a button {
+    width: 100%;
+
+    min-width: 0;
+
+    max-width: 320px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .detailsPage {
+    padding-top: 20px;
+  }
+
+
+  .container {
+    width: calc(100% - 24px);
+  }
+
+
+  .productDetails {
+    gap: 28px;
+
+    padding: 18px;
+
+    border-radius: 18px;
+  }
+
+
+  .imageWrapper {
+    max-width: 260px;
+
+    height: 240px;
+
+    border-radius: 18px;
+  }
+
+
+  .productImage {
+    padding: 18px;
+  }
+
+
+  .category {
+    margin-bottom: 12px;
+  }
+
+
+  .contentSection h1 {
+    font-size: 30px;
+  }
+
+
+  .price {
+    font-size: 22px;
+  }
+
+
+  .description,
+  .aboutProduct p {
+    font-size: 14px;
+  }
+
+
+  .actions {
+    margin-top: 22px;
+  }
+
+
+  .orderButton,
+  .contactButton {
+    height: 46px;
+
+    font-size: 14px;
+  }
+
+
+  .bottomCta {
+    margin-top: 45px;
+
+    padding: 55px 18px;
+  }
+
+
+  .bottomCtaContent h2 {
+    font-size: 34px;
+  }
+
+
+  .bottomCtaContent > span {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .bottomCtaContent p {
+    font-size: 14px;
+  }
+
+
+  .bottomCtaContent a button {
+    height: 48px;
+
+    font-size: 14px;
+
+    border-radius: 12px !important;
+  }
+
+
+  .notFound {
+    min-height: calc(100vh - 68px);
+  }
+
+
+  .notFound h1 {
+    font-size: 28px;
+  }
+}
