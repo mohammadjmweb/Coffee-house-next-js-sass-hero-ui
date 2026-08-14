@@ -1,0 +1,146 @@
+/* =========================================
+   SCROLL TO TOP
+========================================= */
+
+.scrollButton {
+  position: fixed;
+
+  right: 25px;
+  bottom: 25px;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid var(--navbar-border);
+
+  border-radius: 50%;
+
+  background: rgb(124, 40, 40);
+  color: #ffffff;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  z-index: 999;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.18);
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+/* =========================================
+   HOVER
+========================================= */
+
+.scrollButton:hover {
+  transform: translateY(-4px);
+
+  background: rgb(93, 50, 50);
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================
+   ACTIVE
+========================================= */
+
+.scrollButton:active {
+  transform: scale(0.9);
+}
+
+/* =========================================
+   FOCUS
+========================================= */
+
+.scrollButton:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   ICON
+========================================= */
+
+.scrollButton svg {
+  width: 22px;
+  height: 22px;
+
+  stroke-width: 2.5;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.scrollButton:hover svg {
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+:global(.dark) .scrollButton {
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+:global(.dark) .scrollButton:hover {
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+  .scrollButton {
+    right: 18px;
+    bottom: 18px;
+
+    width: 46px;
+    height: 46px;
+
+    font-size: 18px;
+  }
+
+  .scrollButton svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+  .scrollButton {
+    right: 14px;
+    bottom: 14px;
+
+    width: 42px;
+    height: 42px;
+
+    font-size: 17px;
+  }
+
+  .scrollButton svg {
+    width: 18px;
+    height: 18px;
+  }
+}
