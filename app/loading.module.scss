@@ -1,0 +1,344 @@
+/* =========================================
+   LOADING PAGE
+========================================= */
+
+.loadingPage {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--background-color);
+
+  color: var(--heading-color);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.loaderContent {
+  position: relative;
+
+  width: min(90%, 420px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   COFFEE CUP
+========================================= */
+
+.cupWrapper {
+  position: relative;
+
+  width: 100px;
+  height: 90px;
+
+  margin-bottom: 30px;
+}
+
+
+/* =========================================
+   CUP
+========================================= */
+
+.cup {
+  position: absolute;
+
+  left: 10px;
+  bottom: 0;
+
+  width: 72px;
+  height: 58px;
+
+  background: var(--primary);
+
+  border-radius:
+    8px
+    8px
+    24px
+    24px;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.15);
+
+  animation: cupFloat 2s ease-in-out infinite;
+}
+
+
+/* =========================================
+   COFFEE
+========================================= */
+
+.coffee {
+  position: absolute;
+
+  top: 7px;
+  left: 7px;
+
+  width: 58px;
+  height: 15px;
+
+  background: #5a3424;
+
+  border-radius: 50%;
+
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.15);
+}
+
+
+/* =========================================
+   HANDLE
+========================================= */
+
+.handle {
+  position: absolute;
+
+  right: 3px;
+  bottom: 19px;
+
+  width: 28px;
+  height: 32px;
+
+  border: 7px solid var(--primary);
+
+  border-left: 0;
+
+  border-radius:
+    0
+    18px
+    18px
+    0;
+
+  animation: cupFloat 2s ease-in-out infinite;
+}
+
+
+/* =========================================
+   STEAM
+========================================= */
+
+.steam {
+  position: absolute;
+
+  top: -32px;
+  left: 50%;
+
+  width: 70px;
+  height: 55px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  justify-content: space-between;
+
+  pointer-events: none;
+}
+
+
+.steam span {
+  width: 5px;
+  height: 35px;
+
+  border-radius: 50%;
+
+  background: var(--primary);
+
+  opacity: 0;
+
+  filter: blur(1px);
+
+  animation: steam 2s ease-in-out infinite;
+}
+
+
+.steam span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.steam span:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.steam span:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+  margin: 0;
+
+  font-size: 30px;
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+
+  color: var(--heading-color);
+}
+
+
+.logo span {
+  color: var(--primary);
+}
+
+
+/* =========================================
+   LOADING TEXT
+========================================= */
+
+.loadingText {
+  margin: 10px 0 0;
+
+  color: var(--text-color);
+
+  font-size: 15px;
+  font-weight: 500;
+
+  opacity: 0.75;
+}
+
+
+/* =========================================
+   DOTS
+========================================= */
+
+.dots {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 18px;
+}
+
+
+.dots span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--primary);
+
+  animation: dots 1.4s ease-in-out infinite;
+}
+
+
+.dots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes cupFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+
+@keyframes steam {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translateY(15px)
+      scaleY(0.7);
+  }
+
+  30% {
+    opacity: 0.35;
+  }
+
+  70% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translateY(-18px)
+      scaleY(1.1);
+  }
+}
+
+
+@keyframes dots {
+
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+
+    opacity: 0.35;
+  }
+
+  30% {
+    transform: translateY(-5px);
+
+    opacity: 1;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .cupWrapper {
+    transform: scale(0.9);
+
+    margin-bottom: 24px;
+  }
+
+  .logo {
+    font-size: 26px;
+  }
+
+  .loadingText {
+    font-size: 14px;
+  }
+}

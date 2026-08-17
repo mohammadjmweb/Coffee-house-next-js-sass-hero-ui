@@ -1,7 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { Button, Card, Chip } from "@heroui/react";
+
+import Hero from "@/components/Hero";
 
 import styles from "./page.module.scss";
 
@@ -34,12 +35,12 @@ const popularDrinks = [
     category: "Coffee",
   },
   {
-    id: 4,
+    id: 6,
     name: "Iced Coffee",
     description: "Refreshing cold coffee served over ice.",
     price: "$4.00",
     image:
-      "https://www.eatingbirdfood.com/wp-content/uploads/2025/06/iced-coffee-hero-new.jpg",
+      "https://frostingandfettuccine.com/wp-content/uploads/2022/12/Caramel-Iced-Coffee-6.jpg",
     category: "Cold Drinks",
   },
 ];
@@ -47,57 +48,16 @@ const popularDrinks = [
 export default function Home() {
   return (
     <main>
+
       {/* ================= HERO ================= */}
 
-      <section className={styles.hero}>
-        <div className={styles.heroOverlay}>
-          <div className={styles.heroContent}>
-            <span className={styles.heroLabel}>
-              WELCOME TO COFFEE HOUSE
-            </span>
-
-            <h1>
-              Every Cup Has
-              <br />
-              <strong>Its Own Story</strong>
-            </h1>
-
-            <p>
-              Freshly roasted coffee, delicious flavors,
-              and unforgettable moments.
-            </p>
-
-            <div className={styles.heroButtons}>
-              <Link href="/menu">
-                <Button
-                  color="primary"
-                  size="lg"
-                  radius="full"
-                  className={styles.heroPrimaryButton}
-                >
-                  Explore Menu
-                </Button>
-              </Link>
-
-              <Link href="/about">
-                <Button
-                  variant="bordered"
-                  size="lg"
-                  radius="full"
-                  className={styles.heroSecondaryButton}
-                >
-                  Our Story
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* ================= POPULAR DRINKS ================= */}
 
       <section className={styles.menuSection}>
         <div className={styles.container}>
+
           <div className={styles.sectionHeader}>
             <span>OUR MENU</span>
 
@@ -117,14 +77,13 @@ export default function Home() {
                 key={drink.id}
                 className={styles.productCard}
               >
+
                 {/* Product Image */}
 
                 <div className={styles.imageWrapper}>
-                  <Image
+                  <img
                     src={drink.image}
                     alt={drink.name}
-                    width={500}
-                    height={350}
                     className={styles.productImage}
                   />
                 </div>
@@ -132,6 +91,7 @@ export default function Home() {
                 {/* Product Information */}
 
                 <div className={styles.productInfo}>
+
                   <div className={styles.titleRow}>
                     <h3>{drink.name}</h3>
 
@@ -162,6 +122,7 @@ export default function Home() {
                       View Details
                     </Button>
                   </Link>
+
                 </div>
               </Card>
             ))}
@@ -181,6 +142,7 @@ export default function Home() {
               </Button>
             </Link>
           </div>
+
         </div>
       </section>
 
@@ -188,9 +150,13 @@ export default function Home() {
 
       <section className={styles.features}>
         <div className={styles.container}>
+
           <div className={styles.featuresGrid}>
+
             <div className={styles.feature}>
-              <div className={styles.featureIcon}>☕</div>
+              <div className={styles.featureIcon}>
+                ☕
+              </div>
 
               <h3>Premium Coffee</h3>
 
@@ -201,7 +167,9 @@ export default function Home() {
             </div>
 
             <div className={styles.feature}>
-              <div className={styles.featureIcon}>🌿</div>
+              <div className={styles.featureIcon}>
+                🌿
+              </div>
 
               <h3>Fresh Ingredients</h3>
 
@@ -212,7 +180,9 @@ export default function Home() {
             </div>
 
             <div className={styles.feature}>
-              <div className={styles.featureIcon}>❤️</div>
+              <div className={styles.featureIcon}>
+                ❤️
+              </div>
 
               <h3>Made With Love</h3>
 
@@ -221,7 +191,9 @@ export default function Home() {
                 every single cup.
               </p>
             </div>
+
           </div>
+
         </div>
       </section>
 
@@ -229,6 +201,7 @@ export default function Home() {
 
       <section className={styles.cta}>
         <div className={styles.ctaContent}>
+
           <span>YOUR PERFECT COFFEE AWAITS</span>
 
           <h2>
@@ -252,8 +225,10 @@ export default function Home() {
               Visit Us
             </Button>
           </Link>
+
         </div>
       </section>
+
     </main>
   );
 }

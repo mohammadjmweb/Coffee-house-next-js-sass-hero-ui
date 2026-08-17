@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
 
 import { Button, Tooltip } from "@heroui/react";
 
@@ -13,195 +12,208 @@ import {
 
 import styles from "@/styles/navbar.module.scss";
 
-const menuItems = [
-  {
-    label: "Home",
-    href: "/",
-  },
-  {
-    label: "Menu",
-    href: "/menu",
-  },
-  {
-    label: "About",
-    href: "/about",
-  },
-  {
-    label: "Contact",
-    href: "/contact",
-  },
-];
-
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const { theme, setTheme } = useTheme();
-
-  // =========================================
-  // MOUNT
-  // =========================================
+  /* ======================================================
+     LOAD SAVED THEME
+  ====================================================== */
 
   useEffect(() => {
-    setMounted(true);
+    const savedTheme = localStorage.getItem("theme");
+
+    const isDark = savedTheme === "dark";
+
+    setDarkMode(isDark);
+
+    document.documentElement.classList.toggle(
+      "dark",
+      isDark
+    );
   }, []);
 
-  // =========================================
-  // CLOSE MOBILE MENU ON DESKTOP
-  // =========================================
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 768) {
-        setIsOpen(false);
-      }
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  // =========================================
-  // CLOSE MENU
-  // =========================================
-
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
-
-  // =========================================
-  // TOGGLE THEME
-  // =========================================
+  /* ======================================================
+     TOGGLE DARK / LIGHT
+  ====================================================== */
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    const newDarkMode = !darkMode;
+
+    setDarkMode(newDarkMode);
+
+    document.documentElement.classList.toggle(
+      "dark",
+      newDarkMode
+    );
+
+    localStorage.setItem(
+      "theme",
+      newDarkMode ? "dark" : "light"
+    );
   };
+
+
+  /* ======================================================
+     MOBILE MENU
+  ====================================================== */
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+
+  const toggleMenu = () => {
+    setMenuOpen((previous) => !previous);
+  };
+
 
   return (
     <header className={styles.navbar}>
-      {/* =========================================
+
+      {/* ==================================================
           NAVBAR CONTAINER
-      ========================================= */}
+      ================================================== */}
 
       <div className={styles.container}>
-        {/* =========================================
+
+        {/* ==================================================
             LOGO
-        ========================================= */}
+        ================================================== */}
 
         <Link
           href="/"
           className={styles.logo}
           onClick={closeMenu}
         >
+
           <span className={styles.logoIcon}>
             ☕
           </span>
 
           <span className={styles.logoText}>
-            Coffee<span>House</span>
+            Coffee
+            <span>House</span>
           </span>
+
         </Link>
 
-        {/* =========================================
+
+        {/* ==================================================
             DESKTOP MENU
-        ========================================= */}
+        ================================================== */}
 
         <nav className={styles.desktopMenu}>
-          {menuItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={styles.navLink}
-            >
-              {item.label}
-            </Link>
-          ))}
 
-          {/* Theme Button */}
+          <Link
+            href="/"
+            className={styles.navLink}
+          >
+            Home
+          </Link>
 
-          {mounted && (
-            <Tooltip
-              content={
-                theme === "dark"
-                  ? "Light Mode"
-                  : "Dark Mode"
+          <Link
+            href="/menu"
+            className={styles.navLink}
+          >
+            Menu
+          </Link>
+
+          <Link
+            href="/about"
+            className={styles.navLink}
+          >
+            About
+          </Link>
+
+          <Link
+            href="/contact"
+            className={styles.navLink}
+          >
+            Contact
+          </Link>
+
+
+          {/* ==================================================
+              THEME BUTTON
+          ================================================== */}
+
+          <Tooltip
+            content={
+              darkMode
+                ? "Switch to light mode"
+                : "Switch to dark mode"
+            }
+          >
+
+            <Button
+              isIconOnly
+              type="button"
+              className={styles.themeButton}
+              onPress={toggleTheme}
+              aria-label={
+                darkMode
+                  ? "Switch to light mode"
+                  : "Switch to dark mode"
               }
-              placement="bottom"
             >
-              <Button
-                isIconOnly
-                variant="light"
-                radius="full"
-                className={styles.themeButton}
-                onPress={toggleTheme}
-                aria-label={
-                  theme === "dark"
-                    ? "Switch to light mode"
-                    : "Switch to dark mode"
-                }
-              >
-                {theme === "dark" ? "☀️" : "🌙"}
-              </Button>
-            </Tooltip>
-          )}
+              {darkMode ? "☀️" : "🌙"}
+            </Button>
+
+          </Tooltip>
+
         </nav>
 
-        {/* =========================================
+
+        {/* ==================================================
             MOBILE CONTROLS
-        ========================================= */}
+        ================================================== */}
 
         <div className={styles.mobileControls}>
-          {/* Theme Button */}
 
-          {mounted && (
-            <Tooltip
-              content={
-                theme === "dark"
-                  ? "Light Mode"
-                  : "Dark Mode"
+          {/* THEME */}
+
+          <Tooltip
+            content={
+              darkMode
+                ? "Switch to light mode"
+                : "Switch to dark mode"
+            }
+          >
+
+            <Button
+              isIconOnly
+              type="button"
+              className={styles.themeButton}
+              onPress={toggleTheme}
+              aria-label={
+                darkMode
+                  ? "Switch to light mode"
+                  : "Switch to dark mode"
               }
-              placement="bottom"
             >
-              <Button
-                isIconOnly
-                variant="light"
-                radius="full"
-                className={styles.themeButton}
-                onPress={toggleTheme}
-                aria-label={
-                  theme === "dark"
-                    ? "Switch to light mode"
-                    : "Switch to dark mode"
-                }
-              >
-                {theme === "dark" ? "☀️" : "🌙"}
-              </Button>
-            </Tooltip>
-          )}
+              {darkMode ? "☀️" : "🌙"}
+            </Button>
 
-          {/* =========================================
-              HAMBURGER BUTTON
-          ========================================= */}
+          </Tooltip>
+
+
+          {/* HAMBURGER */}
 
           <Button
             isIconOnly
-            variant="light"
-            radius="full"
+            type="button"
             className={styles.menuButton}
-            onPress={() => setIsOpen((prev) => !prev)}
+            onPress={toggleMenu}
             aria-label={
-              isOpen
+              menuOpen
                 ? "Close menu"
                 : "Open menu"
             }
-            aria-expanded={isOpen}
           >
-            {isOpen ? (
+
+            {menuOpen ? (
               <XMarkIcon
                 className={styles.menuIcon}
               />
@@ -210,34 +222,60 @@ export default function Navbar() {
                 className={styles.menuIcon}
               />
             )}
+
           </Button>
+
         </div>
+
       </div>
 
-      {/* =========================================
-          MOBILE DROPDOWN MENU
-          ONLY MOBILE
-      ========================================= */}
+
+      {/* ======================================================
+          MOBILE MENU
+      ====================================================== */}
 
       <nav
         className={`${styles.mobileMenu} ${
-          isOpen
+          menuOpen
             ? styles.mobileMenuOpen
             : ""
         }`}
-        aria-hidden={!isOpen}
       >
-        {menuItems.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={styles.mobileLink}
-            onClick={closeMenu}
-          >
-            {item.label}
-          </Link>
-        ))}
+
+        <Link
+          href="/"
+          className={styles.mobileLink}
+          onClick={closeMenu}
+        >
+          Home
+        </Link>
+
+        <Link
+          href="/menu"
+          className={styles.mobileLink}
+          onClick={closeMenu}
+        >
+          Menu
+        </Link>
+
+        <Link
+          href="/about"
+          className={styles.mobileLink}
+          onClick={closeMenu}
+        >
+          About
+        </Link>
+
+        <Link
+          href="/contact"
+          className={styles.mobileLink}
+          onClick={closeMenu}
+        >
+          Contact
+        </Link>
+
       </nav>
+
     </header>
   );
 }
